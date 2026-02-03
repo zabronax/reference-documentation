@@ -33,6 +33,8 @@
           packages = with pkgs; [
             opentofu
             gh
+            nodejs_24
+            pnpm
           ];
         };
       });
