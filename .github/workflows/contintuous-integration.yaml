@@ -11,8 +11,8 @@ concurrency:
 
 jobs:
   format-check:
+    name: format-check
     runs-on: ubuntu-latest
-    name: Check formatting
 
     permissions:
       contents: read
@@ -21,8 +21,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Setup Cachix
-        uses: cachix/cachix-action@v31
+      - name: Install Nix
+        uses: cachix/install-nix-action@v31
+        with:
+          github_access_token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Pre-build devShell
         run: nix build --no-link .#devShells.$(nix eval --impure --raw --expr 'builtins.currentSystem').default
