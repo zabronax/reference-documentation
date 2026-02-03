@@ -1,6 +1,6 @@
 resource "github_repository" "repository" {
-  name        = "reference-codeowners"
-  description = "Showcase of CODEOWNERS usage"
+  name        = "reference-documentation"
+  description = "Showcase of modern documentation tooling"
   visibility  = "public"
 }
 
